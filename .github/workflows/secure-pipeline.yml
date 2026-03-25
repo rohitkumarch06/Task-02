@@ -6,7 +6,7 @@ on:
 
 env:
   APP_ENV: production
-  IMAGE_NAME: secure-app
+  IMAGE_NAME: secure-appi
 
 jobs:
   security-pipeline:
@@ -36,7 +36,7 @@ jobs:
     - name: Scan Docker Image
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: $IMAGE_NAME
+        image-ref: ${{ env.IMAGE_NAME }}
         format: 'table'
 
     - name: Login to Docker Hub
